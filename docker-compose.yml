@@ -1,0 +1,21 @@
+version: "3"
+services:
+  database:
+    image: mysql
+    container_name: order_db
+    environment:
+      - MYSQL_DATABASE=order_db
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=order
+      - MYSQL_PASSWORD=order
+      - TZ='Asia/Seoul'
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db/order/data:/var/lib/mysql
+    networks:
+      - order_network
+
+networks:
+  order_network:
