@@ -12,7 +12,9 @@ DROP TABLE IF EXISTS tb_product;
 
 CREATE TABLE tb_product
 (
-    id INT AUTO_INCREMENT PRIMARY KEY
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    price INT NOT NULL
 );
 
 DROP TABLE IF EXISTS tb_order;
@@ -35,7 +37,10 @@ DROP TABLE IF EXISTS tb_promotion;
 
 CREATE TABLE tb_promotion
 (
-    id INT AUTO_INCREMENT PRIMARY KEY
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    discount_type VARCHAR(10) NOT NULL,
+    discount_value DECIMAL(7,2) NOT NULL
 );
 
 DROP TABLE IF EXISTS tb_product_promotion;
