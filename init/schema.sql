@@ -1,3 +1,4 @@
+SET FOREIGN_KEY_CHECKS = 0;
 
 DROP TABLE IF EXISTS tb_member;
 
@@ -14,7 +15,11 @@ CREATE TABLE tb_product
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    price INT NOT NULL
+    price INT NOT NULL,
+    segment_category_id INT,
+    family_category_id INT,
+    class_category_id INT,
+    brick_category_id INT
 );
 
 DROP TABLE IF EXISTS tb_order;
@@ -40,7 +45,9 @@ CREATE TABLE tb_promotion
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     discount_type VARCHAR(10) NOT NULL,
-    discount_value DECIMAL(7,2) NOT NULL
+    discount_value DECIMAL(7,2) NOT NULL,
+    start_datetime TIMESTAMP NOT NULL,
+    end_datetime TIMESTAMP NOT NULL
 );
 
 DROP TABLE IF EXISTS tb_product_promotion;
@@ -77,12 +84,14 @@ CREATE TABLE tb_order_delivery
     order_id INT NOT NULL
 );
 
-DROP TABLE IF EXISTS tb_claim;
+DROP TABLE IF EXISTS tb_claim ;
 
 CREATE TABLE tb_claim
 (
     id INT AUTO_INCREMENT PRIMARY KEY
 );
+
+SET FOREIGN_KEY_CHECKS = 1;
 
 -- FK Constraint
 ALTER TABLE tb_order_product
