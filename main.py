@@ -1,5 +1,4 @@
 import pymysql
-from mysql.connector.aio.charsets import charsets
 
 
 def execute_db(path):
@@ -14,7 +13,7 @@ def execute_db(path):
 
     try:
         with db.cursor() as cursor:
-            with open(path, 'r') as file:
+            with open(path, 'r', encoding='UTF8') as file:
                 for sql in file.read().split(';')[:-1]:
                     print(sql)
                     cursor.execute(sql)
