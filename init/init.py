@@ -8,7 +8,7 @@ def execute_db(path):
         user='order',
         passwd='order',
         db='order_db',
-        charset='utf8'
+        #charset='utf8mb4'
     )
 
     try:
@@ -24,5 +24,5 @@ def execute_db(path):
 
 
 if __name__ == '__main__':
-    execute_db('./init/schema.sql')
-    execute_db('./init/data.sql')
+    execute_db('schema.sql')
+    execute_db('data.sql')
