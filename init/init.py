@@ -8,7 +8,7 @@ def execute_db(path):
         user='order',
         passwd='order',
         db='order_db',
-        #charset='utf8mb4'
+        charset='utf8mb4'
     )
 
     try:
